@@ -81,8 +81,8 @@
 <div class="header-bottom">
     <div class="container">
         <div class="logo">
-            <h1><a href="index.html">STYLE BLOG</a></h1>
-            <p><label class="of"></label>LET'S MAKE A PERFECT STYLE<label class="on"></label></p>
+            <h1><a href="<?php echo site_url() ?>"><?php echo get_bloginfo() ?></a></h1>
+            <p><label class="of"></label><?php echo get_bloginfo('description'); ?><label class="on"></label></p>
         </div>
     </div>
 </div>
