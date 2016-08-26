@@ -42,5 +42,8 @@
         <p>© 2016 Style Blog. All rights reserved | Design by <a href="http://w3layouts.com/">W3layouts</a></p>
     </div>
 </div>
+<?php
+    wp_footer();
+?>
 </body>
 </html>

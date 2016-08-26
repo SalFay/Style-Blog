@@ -20,10 +20,16 @@ define('STYLEBLOG_DIR',get_template_directory().'/');
 /**
  * Absolute URL to theme directory
  */
-define('STYLEBLOG_URI',get_template_directory().'/');
+define('STYLEBLOG_URI',get_template_directory_uri().'/');
 
 /* ------------------------------------------------------------
  *  2) Theme Setup
  * ------------------------------------------------------------
  */
 require_once STYLEBLOG_DIR.'inc/setup.php';
+
+/* ------------------------------------------------------------
+ *  3) Enqueue Styles and Scripts
+ * ------------------------------------------------------------
+ */
+require_once STYLEBLOG_DIR.'inc/scripts.php';
