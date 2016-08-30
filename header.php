@@ -1,20 +1,23 @@
 <!DOCTYPE HTML>
-<html>
+<html <?php language_attributes(); ?>>
 <head>
+    <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-
-    <script type="applijewelleryion/x-javascript">
-         addEventListener("load", function() {
-          setTimeout(hideURLbar, 0);
-          }, false);
-          function hideURLbar(){
-          window.scrollTo(0,1);
-          }
-    </script>
+    <link rel="profile" href="http://gmpg.org/xfn/11">
+    <?php if (is_singular() && pings_open(get_queried_object())) : ?>
+        <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
+    <?php endif; ?>
+    <!--    <script type="applijewelleryion/x-javascript">
+             addEventListener("load", function() {
+              setTimeout(hideURLbar, 0);
+              }, false);
+              function hideURLbar(){
+              window.scrollTo(0,1);
+              }
+        </script>-->
     <?php wp_head(); ?>
 </head>
-<body>
+<body <?php body_class() ?>>
 <div class="header" id="ban">
     <div class="container">
         <div class="head-left">
@@ -24,8 +27,8 @@
                     <label class="icon-search" for="search_box"><span class="glyphicon glyphicon-search"
                                                                       aria-hidden="true"></span></label>
                     <div class="search_form">
-                        <form action="#" method="post">
-                            <input type="text" name="Search" placeholder="Search...">
+                        <form action="<?php echo esc_url( home_url( '/' ) ); ?>" method="get">
+                            <input type="text" name="s" placeholder="Search...">
                             <input type="submit" value="Send">
                         </form>
                     </div>
@@ -47,18 +50,17 @@
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
-                    <nav class="link-effect-7" id="link-effect-7">
-                        <ul class="nav navbar-nav">
-                            <li><a href="index.html">Home</a></li>
-                            <li><a href="about.html">About</a></li>
-                            <li><a href="features.html">Features</a></li>
-                            <li><a href="travel.html">Travel</a></li>
-                            <li><a href="fashion.html">Fashion</a></li>
-                            <li><a href="music.html">Music</a></li>
-                            <li><a href="codes.html">Codes</a></li>
-                            <li><a href="contact.html">Contact</a></li>
-                        </ul>
-                    </nav>
+                    <?php
+                    wp_nav_menu([
+                        'menu' => 'primary',
+                        'theme_location' => 'primary',
+                        'menu_class' => 'nav navbar-nav',
+                        'container' => 'nav',
+                        'container_class' => 'link-effect-7',
+                        'container_id' => 'link-effect-7',
+                        'depth' => 1
+                    ]);
+                    ?>
                 </div>
                 <!-- /.navbar-collapse -->
             </nav>
@@ -81,7 +83,7 @@
 <div class="header-bottom">
     <div class="container">
         <div class="logo">
-            <h1><a href="<?php echo site_url() ?>"><?php echo get_bloginfo() ?></a></h1>
+            <h1><a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php echo get_bloginfo() ?></a></h1>
             <p><label class="of"></label><?php echo get_bloginfo('description'); ?><label class="on"></label></p>
         </div>
     </div>
